@@ -7,13 +7,19 @@ export default function SinglePost(props) {
   }
 
   const { title, body, reactions } = props.item;
+  // body.slice(0, 45)}...
+  // body
+  const bodyText = isTextFull ? body : `${body.slice(0, 45)}...`;
+
   return (
     <li className='postCard'>
       <div>
         <h3>{title}</h3>
-        {!isTextFull && <p>{body.slice(0, 45)}...</p>}
-        {isTextFull && <p>{body}</p>}
-        <button onClick={toggleFullText}>read more</button>
+        <p>{bodyText}</p>
+
+        <button onClick={toggleFullText}>
+          read {isTextFull ? 'less' : 'more'}
+        </button>
         <p>{reactions} people like this</p>
       </div>
     </li>
