@@ -27,8 +27,11 @@ export default function PostsList() {
       <ul>
         {postsArr.map((pObj) => (
           <li key={pObj.id}>
-            <h3>{pObj.title}</h3>
-            <p>body, reactions</p>
+            <div className='postCard'>
+              <h3>{pObj.title}</h3>
+              <p>{pObj.body.slice(0, 45)}...</p>
+              <p>{pObj.reactions} people like this</p>
+            </div>
           </li>
         ))}
       </ul>
