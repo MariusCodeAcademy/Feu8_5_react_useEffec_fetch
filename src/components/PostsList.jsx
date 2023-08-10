@@ -25,6 +25,7 @@ export default function PostsList() {
   return (
     <div>
       <h2>PostsList</h2>
+      <p>Kiek viso</p>
       <ul className='unlisted grid'>
         {postsArr.map((pObj) => (
           <SinglePost key={pObj.id} item={pObj} />

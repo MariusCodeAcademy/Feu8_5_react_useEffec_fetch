@@ -16,11 +16,12 @@ export default function SinglePost(props) {
       <div>
         <h3>{title}</h3>
         <p>{bodyText}</p>
-
         <button onClick={toggleFullText}>
           read {isTextFull ? 'less' : 'more'}
         </button>
         <p>{reactions} people like this</p>
+        <p>prideti tagus</p>
+        {/* sukurti PostTags componenta */}
       </div>
     </li>
   );
