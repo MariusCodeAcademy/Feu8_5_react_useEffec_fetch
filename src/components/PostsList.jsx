@@ -2,6 +2,7 @@
 // kai parsiunciam irasom i state (useState)
 
 import { useEffect, useState } from 'react';
+import SinglePost from './SinglePost';
 
 const postsUrl = 'https://dummyjson.com/posts';
 
@@ -26,13 +27,7 @@ export default function PostsList() {
       <h2>PostsList</h2>
       <ul>
         {postsArr.map((pObj) => (
-          <li key={pObj.id}>
-            <div className='postCard'>
-              <h3>{pObj.title}</h3>
-              <p>{pObj.body.slice(0, 45)}...</p>
-              <p>{pObj.reactions} people like this</p>
-            </div>
-          </li>
+          <SinglePost key={pObj.id} item={pObj} />
         ))}
       </ul>
     </div>
