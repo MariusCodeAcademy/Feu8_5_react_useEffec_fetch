@@ -16,6 +16,7 @@
 1. Sukurti komponenta
 2. Parsiunciate duomenis is (https://dummyjson.com/users)
 3. sugeneruojam korteles useriams.
+   ![](assets/2023-08-10-12-03-23.png)
    korteleje atvaizduoti su graziu css:
 
 - firstName
