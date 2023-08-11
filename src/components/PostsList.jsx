@@ -15,27 +15,36 @@ export default function PostsList() {
   function selectInput(event) {
     console.log('select happened', event.target.value);
     setSelectValue(event.target.value);
-    sortBySelectedValue();
+    // sortBySelectedValue();
   }
 
   function sortBySelectedValue() {
     // pasidartyti state kopija
     const postsArrCopy = [...postsArr];
     // sort by selectValue
-    switch (selectValue) {
-      case 'reactions':
-        postsArrCopy.sort((aObj, bObj) => bObj.reactions - aObj.reactions);
-        break;
-      case 'id':
-        postsArrCopy.sort((aObj, bObj) => bObj.id - aObj.id);
-        break;
-      case 'title':
-        postsArrCopy.sort((aObj, bObj) => bObj.title.localeCompare(aObj.title));
-        break;
-      default:
-        console.warn('selected value not found');
-        break;
-    }
+    postsArrCopy.sort((aObj, bObj) =>
+      bObj[selectValue].toString().localeCompare(aObj[selectValue].toString())
+    );
+    // switch (selectValue) {
+    //   case 'reactions':
+    //     postsArrCopy.sort((aObj, bObj) =>
+    //       bObj.reactions.toString().localeCompare(aObj.reactions.toString())
+    //     );
+    //     break;
+    //   case 'id':
+    //     postsArrCopy.sort((aObj, bObj) =>
+    //       bObj.id.toString().localeCompare(aObj.id.toString())
+    //     );
+    //     break;
+    //   case 'title':
+    //     postsArrCopy.sort((aObj, bObj) =>
+    //       bObj.title.toString().localeCompare(aObj.title.toString())
+    //     );
+    //     break;
+    //   default:
+    //     console.warn('selected value not found');
+    //     break;
+    // }
     setPostsArr(postsArrCopy);
   }
 
