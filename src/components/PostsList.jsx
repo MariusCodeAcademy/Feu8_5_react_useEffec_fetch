@@ -15,10 +15,28 @@ export default function PostsList() {
   function selectInput(event) {
     console.log('select happened', event.target.value);
     setSelectValue(event.target.value);
+    sortBySelectedValue();
   }
 
   function sortBySelectedValue() {
+    // pasidartyti state kopija
+    const postsArrCopy = [...postsArr];
     // sort by selectValue
+    switch (selectValue) {
+      case 'reactions':
+        postsArrCopy.sort((aObj, bObj) => bObj.reactions - aObj.reactions);
+        break;
+      case 'id':
+        postsArrCopy.sort((aObj, bObj) => bObj.id - aObj.id);
+        break;
+      case 'title':
+        postsArrCopy.sort((aObj, bObj) => bObj.title.localeCompare(aObj.title));
+        break;
+      default:
+        console.warn('selected value not found');
+        break;
+    }
+    setPostsArr(postsArrCopy);
   }
 
   useEffect(() => {
